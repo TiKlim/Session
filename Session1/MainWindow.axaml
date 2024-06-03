@@ -3,7 +3,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        ExtendClientAreaToDecorationsHint="True"
         x:Class="Session1.MainWindow"
-        Title="Session1">
-    Welcome to Avalonia!
+        Title="Session1"
+        MaxHeight="600"
+        MinHeight="600"
+        MaxWidth="500"
+        MinWidth="500"
+        WindowStartupLocation="CenterScreen">
+
+        <StackPanel HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center"
+                           Margin="0,60,0,0"
+                           FontSize="30"
+                           Foreground="Black"
+                           Text="Мы рады видеть Вас!"/>
+                <TextBlock HorizontalAlignment="Center"
+                           Margin="0,60,0,0"
+                           FontSize="14"
+                           Foreground="Black"
+                           Text="Введите логин и пароль, если Вы зарегистрированы:"/>
+                <TextBox HorizontalAlignment="Center"
+                         Margin="0,20,0,0"
+                         FontSize="24"
+                         Watermark="Логин"
+                         Height="45"
+                         Width="300"/>
+                <TextBox HorizontalAlignment="Center"
+                         Margin="0,30,0,0"
+                         FontSize="24"
+                         Watermark="Пароль"
+                         PasswordChar="*"
+                         Height="45"
+                         Width="300"/>
+                <TextBlock HorizontalAlignment="Center"
+                           Margin="0,60,0,0"
+                           FontSize="14"
+                           Foreground="Black"
+                           Text="Или войдите без авторизации:"/>
+                <Button HorizontalAlignment="Center"
+                        Margin="0,20,0,0"
+                        Height="50"
+                        Width="170"
+                        Background="Brown">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               Foreground="Azure"
+                               Text="Войти как гость"/>
+                </Button>
+        </StackPanel>
 </Window>
