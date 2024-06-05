@@ -40,7 +40,8 @@
                         Margin="0,30,0,0"
                         Height="45"
                         Width="200"
-                        Background="Brown">
+                        Background="BlueViolet"
+                        Name="Enter">
                     <TextBlock HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="15"
@@ -56,7 +57,8 @@
                         Margin="0,20,0,0"
                         Height="50"
                         Width="200"
-                        Background="SlateGray">
+                        Background="SlateGray"
+                        Name="Guest">
                     <TextBlock HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="15"

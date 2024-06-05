@@ -3,7 +3,10 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="Session1/App.axaml" value="Session1/Session1.csproj" />
         <entry key="Session1/MainWindow.axaml" value="Session1/Session1.csproj" />
+        <entry key="Session1/Windows/Authorized.axaml" value="Session1/Session1.csproj" />
+        <entry key="Session1/Windows/MainWindow.axaml" value="Session1/Session1.csproj" />
       </map>
     </option>
   </component>
