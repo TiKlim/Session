@@ -6,7 +6,8 @@
         ExtendClientAreaToDecorationsHint="True"
         x:Class="Session1.Windows.Authorized"
         Title="Authorized"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        x:CompileBindings="False">
     <StackPanel>
         <!--Товары-->
 		<ListBox
@@ -20,6 +21,9 @@
 						Height="150">
 						<Grid
 							ColumnDefinitions="150,*,200">
+							<!--Часть айтема с картинкой-->
+							<Image Source="{Binding pImage}" Margin="5"/>
+							<!--Часть с основной информацией-->
 							<Border
 								Grid.Column="1" BorderBrush="Black" BorderThickness="0.5">
 								<ScrollViewer>
@@ -46,16 +50,16 @@
 										<TextBlock Text="{Binding Count}"/>
 										<TextBlock Text="{Binding Measurement}"/>
 									</WrapPanel>
-									<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
+									<!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
 										<Button Name="btn_cartDel" Content="-" Tag="{Binding Idd}" IsVisible="{Binding !Guest}" Click="CartManipulation"/>
 										<Button Name="btn_cartAdd" Content="+" Tag="{Binding Idd}" IsVisible="{Binding !Guest}" Click="CartManipulation"/>
 									</StackPanel>
 									<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
 										<Button Name="btn_red" Content="Red" Tag="{Binding Idd}" IsVisible="{Binding Admin}" Click="ProductManipulation"/>
 										<Button Name="btn_del" Content="Del" Tag="{Binding Idd}" IsVisible="{Binding Admin}" Click="ProductManipulation"/>
-									</StackPanel>
+									</StackPanel>-->
 								</StackPanel>
-							</Border >
+							</Border>
 						</Grid>
 					</Border>
 				</DataTemplate>

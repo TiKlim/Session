@@ -8,10 +8,10 @@ public class Product
     private int iIdProduct;
     private int iCountInBasket;
     private string sSupplierProduct;
-    private int iMeasurement;
+    private string sMeasurement;
     private string sDescription;
     
-    public Product(string sName, double dPrice, string sType, int id, int iCount, string sSupplier, int iMeasure, string sDes)
+    public Product(string sName, double dPrice, string sType, int id, int iCount, string sSupplier, string sMeasure, string sDes)
     {
         sNameProduct = sName;
         dPriceProduct = dPrice;
@@ -19,7 +19,7 @@ public class Product
         iIdProduct = id;
         iCountInBasket = iCount;
         sSupplierProduct = sSupplier;
-        iMeasurement = iMeasure;
+        sMeasurement = sMeasure;
         sDescription = sDes;
     }
     public string Name
@@ -56,10 +56,10 @@ public class Product
         set { sSupplierProduct = value; }
     }
     
-    public int Measurement
+    public string Measurement
     {
-        get { return iMeasurement; }
-        set { iMeasurement = value; }
+        get { return sMeasurement; }
+        set { sMeasurement = value; }
     }
     
     public string Description

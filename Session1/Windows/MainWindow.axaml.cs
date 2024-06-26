@@ -10,11 +10,20 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         Enter.Click += EnterOnClick;
+        Guest.Click += GuestOnClick;
+    }
+
+    private void GuestOnClick(object? sender, RoutedEventArgs e)
+    {
+        Authorized atrd = new Authorized();
+        atrd.Show();
+        Close();
     }
 
     private void EnterOnClick(object? sender, RoutedEventArgs e)
     {
         Authorized atrd = new Authorized();
         atrd.Show();
+        Close();
     }
 }
