@@ -19,7 +19,7 @@
                            Foreground="Black"
                            Text="Мы рады видеть Вас!"/>
                 <TextBlock HorizontalAlignment="Center"
-                           Margin="0,60,0,0"
+                           Margin="0,40,0,0"
                            FontSize="14"
                            Foreground="Black"
                            Text="Введите логин и пароль, если Вы зарегистрированы:"/>
@@ -27,43 +27,57 @@
                          Margin="0,20,0,0"
                          FontSize="24"
                          Watermark="Логин"
+                         Name="Login"
                          Height="45"
                          Width="300"/>
+                <TextBlock Name="FalseLogin"
+                           Text="Такого логина не существует"
+                           Foreground="Red"
+                           HorizontalAlignment="Center"
+                           IsVisible="False"/>
                 <TextBox HorizontalAlignment="Center"
                          Margin="0,30,0,0"
                          FontSize="24"
                          Watermark="Пароль"
                          PasswordChar="*"
+                         Name="Password"
                          Height="45"
                          Width="300"/>
-                <Button HorizontalAlignment="Center"
-                        Margin="0,30,0,0"
-                        Height="45"
-                        Width="200"
-                        Background="BlueViolet"
-                        Name="Enter">
+                <TextBlock Name="FalsePass"
+                           Text="Такого пароля не существует"
+                           Foreground="Red"
+                           HorizontalAlignment="Center"
+                           IsVisible="False"/>
+                <StackPanel>
+                    <Button HorizontalAlignment="Center"
+                            Margin="0,50,0,0"
+                            Height="45"
+                            Width="200"
+                            Background="BlueViolet"
+                            Name="Enter">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="15"
+                                   Foreground="Azure"
+                                   Text="Войти"/>
+                    </Button>
                     <TextBlock HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="15"
-                               Foreground="Azure"
-                               Text="Войти"/>
-                </Button>
-                <TextBlock HorizontalAlignment="Center"
-                           Margin="0,35,0,0"
-                           FontSize="14"
-                           Foreground="Black"
-                           Text="Или войдите без авторизации:"/>
-                <Button HorizontalAlignment="Center"
-                        Margin="0,20,0,0"
-                        Height="50"
-                        Width="200"
-                        Background="SlateGray"
-                        Name="Guest">
-                    <TextBlock HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="15"
-                               Foreground="Azure"
-                               Text="Войти как гость"/>
-                </Button>
+                               Margin="0,35,0,0"
+                               FontSize="14"
+                               Foreground="Black"
+                               Text="Или войдите без авторизации:"/>
+                    <Button HorizontalAlignment="Center"
+                            Margin="0,20,0,0"
+                            Height="50"
+                            Width="200"
+                            Background="SlateGray"
+                            Name="Guest">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="15"
+                                   Foreground="Azure"
+                                   Text="Войти как гость"/>
+                    </Button>
+                </StackPanel>
         </StackPanel>
 </Window>

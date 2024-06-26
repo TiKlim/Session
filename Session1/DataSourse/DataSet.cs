@@ -10,4 +10,13 @@ public class DataBase
         new Product("Молоко", 69.99, "type", 1, 20, "Поставщик", "шт", "Вкусное, полезное, зашибись"),
         new Product("Сыр", 130.90, "type", 2, 0, "Поставщик", "шт", "Вкусный, сырный, зашибись")
     };
+
+    public Users UAuthorizedUser = null; //Авторизованный пользователь
+
+    public List<Users> UUsers = new List<Users>()
+    {
+        new Users("Admin", "Admin", true, false),
+        new Users("User", "User", false, false)
+
+    };
 }

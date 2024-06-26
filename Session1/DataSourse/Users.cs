@@ -16,25 +16,25 @@ public class Users
         bIfTheGuest = guest;
     }
 
-    public string Login
+    public string ULogin
     {
         get { return sLoginUser; }
         set { sLoginUser = value; }
     }
 
-    public string Password
+    public string UPassword
     {
         get { return sPasswordUser; }
         set { sPasswordUser = value; }
     }
 
-    public bool Admin
+    public bool UAdmin
     {
         get { return bIfTheAdmin; }
         set { bIfTheAdmin = value; }
     }
 
-    public bool Guest
+    public bool UGuest
     {
         get { return bIfTheGuest; }
         set { bIfTheGuest = value; }
