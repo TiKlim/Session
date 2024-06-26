@@ -9,9 +9,43 @@
         WindowStartupLocation="CenterScreen"
         x:CompileBindings="False">
     <StackPanel>
-        <!--Товары-->
+	    <StackPanel Margin="0,30,0,0">
+	    <!--Статус пользователя-->
+	    <TextBlock Margin="0,0,10,0"
+		    Name="UserStatus"
+		    FontSize="20" 
+		    FontWeight="Bold"
+		    HorizontalAlignment="Right"
+		    VerticalAlignment="Center"
+		    Text="Вы вошли как: "/>
+	    </StackPanel>
+	    <!--Строка поиска-->
+	    <TextBlock Name="SearchBar" 
+	               FontSize="20"
+	               FontWeight="DemiBold" 
+	               HorizontalAlignment="Left"
+	               Margin="0,0,0,0"/>
+	    <StackPanel HorizontalAlignment="Left"
+	                Margin="12,0,0,0">
+		    <TextBox
+			    Name="Search"
+			    Watermark="Найти"
+			    Text=""
+			    VerticalContentAlignment="Center" FontSize="23"
+			    Height="40"
+			    Width="450"
+			    VerticalAlignment="Center"/>
+	    </StackPanel>
+	    <!--Кнопка "Добавить товар"-->
+	    <StackPanel Margin="0,0,0,0">
+	    <Button Name="Add"
+	            HorizontalAlignment="Right"
+	            Margin="0,0,10,0"/>
+	    </StackPanel>
+	    <!--Товары-->
 		<ListBox
-			Name="ListOfProducts">
+			Name="ListOfProducts"
+			Margin="0,30,0,0">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Border
@@ -46,7 +80,7 @@
 								<StackPanel
 									Orientation="Vertical" VerticalAlignment="Center" >
 									<WrapPanel HorizontalAlignment="Center">
-										<TextBlock Text="Осталось в наличии: " TextWrapping="Wrap"/>
+										<TextBlock Text="Наличие на складе: " TextWrapping="Wrap"/>
 										<TextBlock Text="{Binding Count}"/>
 										<TextBlock Text="{Binding Measurement}"/>
 									</WrapPanel>
