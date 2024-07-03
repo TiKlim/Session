@@ -1,0 +1,104 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Session1.Windows.Basket"
+        Title="Basket"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True">
+	<Grid
+		ColumnDefinitions="*,*,*"
+		RowDefinitions="*,*,*,*,*,*">
+		<Border
+			BorderBrush="Black"
+			BorderThickness="1"
+			CornerRadius="10"
+			Grid.Column="1"
+			Grid.Row="1"
+			Grid.RowSpan="4"
+			Background="White">
+			<!--корзина-->
+			<Grid
+				RowDefinitions="30,*,*,*,*,*">
+				<Panel>
+					<Grid 
+						ColumnDefinitions="*,*,*">
+						<TextBlock Text="Назание" 
+						           FontSize="20" 
+						           Margin="13 0"/>
+						<TextBlock Text="Количество" 
+						           FontSize="20" 
+						           HorizontalAlignment="Center" 
+						           Grid.Column="1"/>
+						<TextBlock Text="Цена" 
+						           FontSize="20" 
+						           Grid.Column="2" 
+						           HorizontalAlignment="Center" />
+					</Grid>
+				</Panel>
+				<ListBox Name="BasketList"
+					Grid.Row="1" Grid.RowSpan="3">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border
+								Height="30">
+								<!--<Grid
+									ColumnDefinitions="*,*,*,*,30">
+									<TextBlock Text="{Binding BSname}" 
+									           FontSize="20" 
+									           Grid.ColumnSpan="2"/>
+									<TextBlock Text="{Binding BIcount}" 
+									           FontSize="20" 
+									           Grid.Column="2"/>
+									<TextBlock Text="{Binding BDprice}" 
+									           FontSize="20" 
+									           Grid.Column="3" 
+									           HorizontalAlignment="Right" 
+									           Margin=" 0 0 10 0"/>
+									<Button Name="BasketItemDelete" 
+									        Tag="{Binding BIid}" 
+									        Content="&#10005;" 
+									        Grid.Column="4" 
+									        VerticalAlignment="Center" 
+									        HorizontalAlignment="Right" 
+									        Click="CartActivity"/>
+								</Grid>-->
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<!--Стоимость-->
+				<StackPanel HorizontalAlignment="Right"
+					Grid.Row="4" 
+					Margin="10"
+					Orientation="Horizontal">
+					<TextBlock Text="К оплате:" 
+					           FontSize="25" 
+					           Margin="10 0"/>
+					<TextBlock Name="itemPrice" 
+					           FontSize="25"/>
+				</StackPanel>
+				<!--кнопки-->
+				<StackPanel
+					HorizontalAlignment="Center"
+					Grid.Row="5"
+					Orientation="Horizontal">
+					<Button Name="Return" 
+					        Content="Назад" 
+					        FontSize="25" 
+					        Margin="10 0" 
+					        Click="CartActivity"/>
+					<Button Name="Clear" 
+					        Content="Очистить корзину" 
+					        FontSize="25" 
+					        Margin="10 0" 
+					        Click="CartActivity"/>
+					<Button Content="Оплатить" 
+					        FontSize="25" 
+					        Margin="10 0"/>
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</Window>

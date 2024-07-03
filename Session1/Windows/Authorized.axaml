@@ -7,45 +7,114 @@
         x:Class="Session1.Windows.Authorized"
         Title="Authorized"
         WindowStartupLocation="CenterScreen"
-        x:CompileBindings="False">
-    <StackPanel>
-	    <StackPanel Margin="0,30,0,0">
-	    <!--Статус пользователя-->
-	    <TextBlock Margin="0,0,10,0"
-		    Name="UserStatus"
-		    FontSize="20" 
-		    FontWeight="Bold"
-		    HorizontalAlignment="Right"
-		    VerticalAlignment="Center"
-		    Text="Вы вошли как: "/>
-	    </StackPanel>
-	    <!--Строка поиска-->
-	    <TextBlock Name="SearchBar" 
-	               FontSize="20"
-	               FontWeight="DemiBold" 
-	               HorizontalAlignment="Left"
-	               Margin="0,0,0,0"/>
-	    <StackPanel HorizontalAlignment="Left"
-	                Margin="12,0,0,0">
-		    <TextBox
-			    Name="Search"
-			    Watermark="Найти"
-			    Text=""
-			    VerticalContentAlignment="Center" FontSize="23"
-			    Height="40"
-			    Width="450"
-			    VerticalAlignment="Center"/>
-	    </StackPanel>
-	    <!--Кнопка "Добавить товар"-->
-	    <StackPanel Margin="0,0,0,0">
-	    <Button Name="Add"
-	            HorizontalAlignment="Right"
-	            Margin="0,0,10,0"/>
-	    </StackPanel>
-	    <!--Товары-->
+        x:CompileBindings="False"
+        WindowState="Maximized">
+	<Window.Background>
+		Salmon
+	</Window.Background>
+	<Grid
+		RowDefinitions="125,*">
+		<!--Верхняя панель с кнопками добавления товара, выхода пользователя и поисковой строкой-->
+		<Panel
+			Height="100"
+			Background="LightGray">
+			<Grid
+				ColumnDefinitions="*,*,*">
+				<!--Строка поиска-->
+				<TextBlock 
+					Name="searchCount" 
+					FontSize="20"
+					FontWeight="DemiBold" 
+					HorizontalAlignment="Right"
+					Margin="15"/>
+				<StackPanel Grid.ColumnSpan="1"  
+				            Margin="20 0">
+					<TextBlock 
+						Text="Найти:" 
+						FontSize="25"
+						Margin="0 10"/>
+					<TextBox
+						Name="search" 
+						KeyUp="SearchingActivity"
+						Text=""
+						VerticalContentAlignment="Center" 
+						FontSize="23"
+						Height="40"
+						VerticalAlignment="Center"/>
+				</StackPanel>
+				<!--отображение товаров в корзине-->
+				<TextBlock
+						Name="cartCount"
+						Grid.Column="2" 
+						HorizontalAlignment="Left"
+						Margin="10"
+						FontSize="20"
+						FontWeight="DemiBold"/>
+					<!--Сортировка-->
+				<StackPanel
+					Grid.Column="1" 
+					Orientation="Horizontal"
+					VerticalAlignment="Bottom">
+					<StackPanel Margin="10">
+						<TextBlock
+							Text="Производители:"
+							FontSize="20"
+							FontWeight="DemiBold"/>
+						<ComboBox 
+							Name="sortSuppliers"
+							SelectionChanged="SelectionChanging"
+							FontSize="18"/>
+					</StackPanel>
+					<StackPanel Margin="10">
+						<TextBlock
+							Text="Стоимость:"
+							FontSize="20"
+							FontWeight="DemiBold"/>
+						<ComboBox 
+							Name="sortPrice"
+							SelectionChanged="SelectionChanging"
+							FontSize="18"
+							/>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel
+					Grid.Column="2" Margin="10 15">
+					<!--отображение пользователя-->
+					<TextBlock
+							Name="tblock_user"
+							FontSize="20" 
+							FontWeight="Bold"
+							HorizontalAlignment="Right"
+							Text="Вы вошли как: "/>
+					<!--Кнопки-->
+					<StackPanel
+						Orientation="Horizontal"
+						HorizontalAlignment="Right"
+						Margin="0 10 0 0">
+						<Button 
+							Name="addProduct"
+							Content="Добавить товар" 
+							FontSize="20"
+							Click="ProductManipulation"/>
+						<Button
+							Name="toShopping"
+							Content="В корзину" 
+							FontSize="20"
+							Click="ToCart"/>
+						<Button 
+							Name="btn_logout"
+							Content="Выйти из аккаунта"
+							FontSize="20"
+							Click="LogOut"/>
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</Panel>
+		<!--Листбокс-->
 		<ListBox
 			Name="ListOfProducts"
-			Margin="0,30,0,0">
+			Grid.Row="1">
+			<!--элемент-->
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Border
@@ -55,17 +124,24 @@
 						Height="150">
 						<Grid
 							ColumnDefinitions="150,*,200">
-							<!--Часть элемента с картинкой-->
-							<Image Source="{Binding pImage}" Margin="5"/>
+							<!--Часть айтема с картинкой-->
+							<Image Source="{Binding pImage}" 
+							       Margin="5"/>
 							<!--Часть с основной информацией-->
 							<Border
-								Grid.Column="1" BorderBrush="Black" BorderThickness="0.5">
+								Grid.Column="1" BorderBrush="Black" 
+								BorderThickness="0.5">
 								<ScrollViewer>
 									<StackPanel
 										Orientation="Vertical">
-										<TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="10 10 0 10"/>
-										<TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="10 0 10 10"/>
-										<StackPanel Orientation="Horizontal"  Margin="10 0 0 10">
+										<TextBlock Text="{Binding Name}" 
+										           FontWeight="Bold" 
+										           Margin="10 10 0 10"/>
+										<TextBlock Text="{Binding Description}" 
+										           TextWrapping="Wrap" 
+										           Margin="10 0 10 10"/>
+										<StackPanel Orientation="Horizontal"  
+										            Margin="10 0 0 10">
 											<TextBlock Text="Производитель: "/>
 											<TextBlock Text="{Binding Supplier}"/>
 										</StackPanel>
@@ -76,28 +152,68 @@
 									</StackPanel>
 								</ScrollViewer>
 							</Border>
+							<!--Часть с кнопками-->
 							<Border Grid.Column="2">
 								<StackPanel
 									Orientation="Vertical" VerticalAlignment="Center" >
 									<WrapPanel HorizontalAlignment="Center">
-										<TextBlock Text="Наличие на складе: " TextWrapping="Wrap"/>
+										<TextBlock Text="Осталось в наличии: " 
+										           TextWrapping="Wrap"/>
 										<TextBlock Text="{Binding Count}"/>
 										<TextBlock Text="{Binding Measurement}"/>
 									</WrapPanel>
-									<!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
-										<Button Name="btn_cartDel" Content="-" Tag="{Binding Idd}" IsVisible="{Binding !Guest}" Click="CartManipulation"/>
-										<Button Name="btn_cartAdd" Content="+" Tag="{Binding Idd}" IsVisible="{Binding !Guest}" Click="CartManipulation"/>
+									<StackPanel Orientation="Horizontal" 
+									            HorizontalAlignment="Center" 
+									            Margin="0 15 0 0">
+										<Button Name="cartDel" 
+										        Tag="{Binding pId}" 
+										        IsVisible="{Binding !Guest}" 
+										        Click="CartManipulation"
+										        Width="100"
+										        Background="Bisque">
+											<TextBlock Text="Убрать"
+											           VerticalAlignment="Center"
+											           HorizontalAlignment="Center"/>
+										</Button>
+										<Button Name="cartAdd" 
+										        Tag="{Binding pId}" 
+										        IsVisible="{Binding !Guest}" 
+										        Click="CartManipulation"
+										        Width="100"
+										        Background="Bisque">
+											<TextBlock Text="Добавить"
+											           VerticalAlignment="Center"
+											           HorizontalAlignment="Center"/>
+										</Button>
 									</StackPanel>
-									<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
-										<Button Name="btn_red" Content="Red" Tag="{Binding Idd}" IsVisible="{Binding Admin}" Click="ProductManipulation"/>
-										<Button Name="btn_del" Content="Del" Tag="{Binding Idd}" IsVisible="{Binding Admin}" Click="ProductManipulation"/>
-									</StackPanel>-->
+									<StackPanel Orientation="Horizontal" 
+									            HorizontalAlignment="Center" 
+									            Margin="0 15 0 0">
+										<Button Name="cost" 
+										        Tag="{Binding pId}" 
+										        IsVisible="{Binding Admin}" 
+										        Click="ProductManipulation"
+										        Background="Bisque">
+											<TextBlock Text="Редактировать"
+											           VerticalAlignment="Center"
+											           HorizontalAlignment="Center"/>
+										</Button>
+										<Button Name="del" 
+										        Tag="{Binding pId}" 
+										        IsVisible="{Binding Admin}" 
+										        Click="ProductManipulation"
+										        Background="Bisque">
+											<TextBlock Text="Удалить"
+											           VerticalAlignment="Center"
+											           HorizontalAlignment="Center"/>
+										</Button>
+									</StackPanel>
 								</StackPanel>
-							</Border>
+							</Border >
 						</Grid>
 					</Border>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
-    </StackPanel>
+	</Grid>
 </Window>

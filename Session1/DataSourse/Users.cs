@@ -1,4 +1,6 @@
-﻿namespace Session1.DataSourse;
+﻿using System.Collections.Generic;
+
+namespace Session1.DataSourse;
 
 public class Users
 {
@@ -6,6 +8,7 @@ public class Users
     private string sPasswordUser; //пароль
     private bool bIfTheAdmin; //булево админ
     private bool bIfTheGuest; //булево гость
+    private List<BasketItem> UserBasket = [];
     //private List<Product> lUserProduct = [];
 
     public Users(string login, string password, bool admin, bool guest)
@@ -40,9 +43,9 @@ public class Users
         set { bIfTheGuest = value; }
     }
 
-    /*public List<Product> UserProduct
+    public List<BasketItem> LUserBasket
     {
-        get { return _UserCart; }
-        set { _UserCart = value; }
-    }*/
+        get { return UserBasket; }
+        set { UserBasket = value; }
+    }
 }

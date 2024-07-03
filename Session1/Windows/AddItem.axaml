@@ -1,0 +1,194 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Session1.Windows.AddItem"
+        Title="AddItem"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True"
+        WindowState="Maximized">
+	<Window.Background>
+		Salmon
+	</Window.Background>
+	<Grid
+		RowDefinitions="*,*,*,*,*"
+		ColumnDefinitions="*,*,*,*">
+		<Border
+			Grid.Column="1" Grid.Row="0"
+			Grid.ColumnSpan="2" Grid.RowSpan="5"
+			BorderBrush="Black"
+			BorderThickness="1"
+			Background="White"
+			CornerRadius="10">
+			<Panel>
+				<Grid
+					ColumnDefinitions="*,*,*,*"
+					RowDefinitions="*,*,*,*,*">
+					<!--Заголовок-->
+					<TextBlock
+						Name="panelHeader"
+						Grid.ColumnSpan="4"
+						HorizontalAlignment="Center"
+						FontSize="25" FontWeight="Bold"
+						Margin="0 15 0 0"/>
+					<StackPanel
+						Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3">
+						<!--ID-->
+						<TextBlock
+							Name="aId"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<!--Название-->
+						<TextBlock
+							Text="Наименование товара:"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<TextBox
+							Name="aName"
+							Margin="10 10"/>
+						<!--Производитель-->
+						<TextBlock
+							Text="Производитель:"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<TextBox
+							Name="aSupplier"
+							Margin="10 10"/>
+						<!--Количество-->
+						<TextBlock
+							Text="Количество:"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<TextBox
+							Name="aCount"
+							Margin="10 10"/>
+						<!--Стоимость-->
+						<TextBlock
+							Text="Стоимость:"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<TextBox
+							Name="aPrice"
+							Margin="10 10"/>
+						<!--Категория-->
+						<StackPanel
+							Orientation="Horizontal">
+							<StackPanel>
+								<TextBlock
+									Text="Единицы измерения:"
+									FontSize="20" FontWeight="Bold"
+									Margin="10 0 0 10"/>
+								<ComboBox
+									Name="aMeasurements"
+									FontSize="18"
+									Margin="10 0"/>
+							</StackPanel>
+							<StackPanel>
+								<TextBlock
+									Text="Категория:"
+									FontSize="20" FontWeight="Bold"
+									Margin="10 0 0 10"/>
+								<ComboBox
+									Name="aCathegories"
+									FontSize="18"
+									Margin="10 0"/>
+							</StackPanel>
+						</StackPanel>						
+					</StackPanel>
+					<StackPanel
+						Grid.Row="1" Grid.Column="2"
+						Grid.ColumnSpan="2" Grid.RowSpan="3">
+						<!--Описание-->
+						<TextBlock
+							Text="Описание:"
+							Grid.Column="2"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<TextBox
+							Name="aDescription"
+							Margin="10"
+							Height="150"
+							TextWrapping="Wrap"/>
+						<!--Изображение-->
+						<TextBlock
+							Text="Изображение:"
+							FontSize="20" FontWeight="Bold"
+							Margin="10 0"/>
+						<StackPanel
+							Orientation="Horizontal">
+							<!--Превью изображения-->
+							<StackPanel
+								HorizontalAlignment="Left" Margin="10">
+								<Image
+									Name="imgPreview"
+									IsVisible="False"
+									Height="120"/>
+								<TextBlock
+									Name="preview"
+									IsVisible="False"
+									HorizontalAlignment="Center"/>
+							</StackPanel>
+							<!--Кнопки для выбора и удаления изображения-->
+							<StackPanel>
+								<Button 
+									Name="imgAdd"
+									Click="ImageSelection"
+									Background="Bisque"
+									Height="40"
+									Width="180">
+									<TextBlock Text="Добавить изображение"
+									           VerticalAlignment="Center"
+									           HorizontalAlignment="Center"/>
+								</Button>
+								<Button
+									Name="imgDel"
+									Click="ImageSelection"
+									Background="Bisque"
+									Height="40"
+									Width="180">
+									<TextBlock Text="Удалить изображение"
+									           VerticalAlignment="Center"
+									           HorizontalAlignment="Center"/>
+								</Button>
+							</StackPanel>
+						</StackPanel>
+					</StackPanel>
+					<!--Добавление товара и отмена-->
+					<Button
+						Name="aCancel"
+						Click="AddActivity"
+						FontSize="20" HorizontalAlignment="Center"
+						VerticalAlignment="Bottom" 
+						Margin="15"
+						Grid.Row="4" 
+						Grid.ColumnSpan="2"
+						Background="Bisque"
+						Height="40"
+						Width="120">
+						<TextBlock Text="Отмена"
+						           VerticalAlignment="Center"
+						           HorizontalAlignment="Center"/>
+					</Button>					
+					<Button
+						Name="aConfirm"
+						Click="AddActivity"
+						FontSize="20" 
+						HorizontalAlignment="Center"
+						VerticalAlignment="Bottom" 
+						Margin="15"
+						Grid.Column="2"
+						Grid.Row="4" 
+						Grid.ColumnSpan="2"
+						Background="Bisque"
+						Height="40"
+						Width="120">
+						<TextBlock Text="Готово"
+						           VerticalAlignment="Center"
+						           HorizontalAlignment="Center"/>
+						</Button>
+				</Grid>
+			</Panel>
+		</Border>
+	</Grid>
+</Window>

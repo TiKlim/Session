@@ -1,26 +1,30 @@
-﻿namespace Session1.DataSourse;
+﻿using Avalonia.Media.Imaging;
+
+namespace Session1.DataSourse;
 
 public class Product
 {
     private string sNameProduct;
     private double dPriceProduct;
-    private string sTypeProduct;
     private int iIdProduct;
     private int iCountInBasket;
     private string sSupplierProduct;
-    private string sMeasurement;
+    private int iMeasurement;
     private string sDescription;
+    private string? SProductImageSource; //Источник картинки, может быть не указан. Включает в себя только название файла с расширением
+    private int ICathegoryId; //Идентификатор категории
     
-    public Product(string sName, double dPrice, string sType, int id, int iCount, string sSupplier, string sMeasure, string sDes)
+    public Product(string sName, double dPrice, int id, int iCount, string sSupplier, int iMeasure, string sDes, string sImg, int iCathegory)
     {
         sNameProduct = sName;
         dPriceProduct = dPrice;
-        sTypeProduct = sType;
         iIdProduct = id;
         iCountInBasket = iCount;
         sSupplierProduct = sSupplier;
-        sMeasurement = sMeasure;
+        iMeasurement = iMeasure;
         sDescription = sDes;
+        SProductImageSource = sImg;
+        ICathegoryId = iCathegory;
     }
     public string Name
     {
@@ -31,11 +35,6 @@ public class Product
     {
         get { return dPriceProduct; }
         set { dPriceProduct = value; }
-    }
-    public string Type
-    {
-        get { return sTypeProduct; }
-        set { sTypeProduct = value; }
     }
 
     public int Idd
@@ -56,10 +55,10 @@ public class Product
         set { sSupplierProduct = value; }
     }
     
-    public string Measurement
+    public int Measurement
     {
-        get { return sMeasurement; }
-        set { sMeasurement = value; }
+        get { return iMeasurement; }
+        set { iMeasurement = value; }
     }
     
     public string Description
@@ -68,4 +67,17 @@ public class Product
         set { sDescription = value; }
     }
     
+    public string? ImageSource
+    {
+        get { return SProductImageSource; }
+        set { SProductImageSource = value; }
+    }
+    
+    public int Cathegory
+    {
+        get { return ICathegoryId; }
+        set { ICathegoryId = value; }
+    }
+    
+    public Bitmap? BitmapImage => ImageSource != null ? new Bitmap($"Assets/{ImageSource}") : new Bitmap("Assets/placeholder.jpg"); //Если источник не указан, используется заглушка
 }
